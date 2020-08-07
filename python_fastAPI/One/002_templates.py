@@ -1,7 +1,7 @@
 '''
 Author: 凃建强
 Date: 2020-08-06 23:02:13
-LastEditTime: 2020-08-07 00:04:45
+LastEditTime: 2020-08-07 21:37:44
 LastEditors: Please set LastEditors
 Description: FastAPI-jinja2的模板渲染
 FilePath: \python_work_space\python_work_space\python_fastAPI\One\002_templates.py
@@ -9,7 +9,7 @@ FilePath: \python_work_space\python_work_space\python_fastAPI\One\002_templates.
 from starlette.requests import Request
 from fastapi import FastAPI
 from starlette.templating import Jinja2Templates
-
+# pip jinja2 、 aiofiles
 app = FastAPI()
 # templates用于存放模板
 templates = Jinja2Templates(directory="templates")

@@ -1,7 +1,7 @@
 '''
 Author:凃建强
 Date: 2020-08-08 22:17:25
-LastEditTime: 2020-08-08 22:31:51
+LastEditTime: 2020-08-09 14:56:56
 Description: 文件上传&展示
 FilePath: \python_work_space\python_work_space\python_fastAPI\One\004-files.py
 '''
@@ -31,6 +31,20 @@ async def files(
                 "filenames":    [file.filename for file in files_name],
              })
 
+@app.post("/create_file/")
+async def create_file(
+                        request: Request,
+                        file: bytes         = File(...),
+                        fileb: UploadFile   = File(...),
+                        notes: str          = Form(...),
+                      ):
+    return templates.TemplateResponse("index.html",
+            {
+                "request":               request,
+                "file_size":             len(file),
+                "notes":                 notes,
+                "fileb_content_type":    fileb.content_type,
+             })
 
 if __name__ == '__main__':
     import uvicorn
